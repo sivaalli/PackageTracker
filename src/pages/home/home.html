@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h3>Welcome to Package Tracker!</h3>
+    Please select courier carrier
+  <ion-item>
+    <ion-label>Carrier</ion-label>
+    <ion-select [(ngModel)]="carrier">
+      <ion-option value="usps" selected="true">USPS</ion-option>
+      <ion-option value="fedex">Fedex</ion-option>
+      <ion-option value="ups">UPS</ion-option>
+    </ion-select>
+  </ion-item>
+
+    <button ion-button icon-left large block (click)="takePicture(1)">
+        <ion-icon name="camera"></ion-icon>
+        Take Picture
+    </button>
+    <button ion-button icon-left large block (click)="takePicture(0)">
+        <ion-icon name="images"></ion-icon>
+        Gallery
+    </button>
+  <h1>Parsed data</h1>
+  {{parsedData}}
+  <h1>Tracking numbers parsed*****</h1>
+    <div *ngFor="let track of trackingNumberList">
+      <p>{{track}}</p>
+    </div>
+    <div *ngIf="trackingNumber">
+        <h3 style="text-align: center">Tracking Number is </h3>
+        <p style="text-align: center">{{trackingNumber}}</p>
+        <button ion-button large block (click)="trackPackage()">Track Package</button>
+    </div>
+</ion-content>

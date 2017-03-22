@@ -1,0 +1,32 @@
+<!--
+  Generated template for the TrackingDetails page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tracking Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      <h1>{{trackingDetails.carrier}} - {{trackingDetails.tracking_number}}</h1>
+    </ion-list-header>
+    <div *ngFor="let checkpoint of trackingDetails.tracking_history">
+      <ion-item text-wrap>
+        <h2>
+          {{checkpoint.status_details}}
+        </h2>
+        <p *ngIf="checkpoint.location">{{checkpoint.location.city}}, {{checkpoint.location.state}}</p>
+        <p>{{checkpoint.status_date | date:'medium' }}</p>
+      </ion-item>
+    </div>
+
+  </ion-list>
+</ion-content>
